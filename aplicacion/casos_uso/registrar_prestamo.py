@@ -4,7 +4,7 @@ from dominio.excepciones import LimitePrestamoExcedido, EquipoNoDisponible, Estu
 from aplicacion.puertos.repo_prestamo import RepoPrestamo
 from aplicacion.puertos.proveedor_fecha import ProveedorFecha
 
-LIMITE_MAX_PRESTAMOS = 2
+LIMITE_MAX_PRESTAMOS = 2 #definimos el numero maximo de prestamos
 
 class RegistrarPrestamo:
     def __init__(self, repo_prestamo: RepoPrestamo, proveedor_fecha: ProveedorFecha):
