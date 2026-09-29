@@ -1,23 +1,22 @@
-from datetime import datetime
+from datetime import date
 from dominio.estado_prestamo import EstadoPrestamo
 
 class Prestamo:
-    def  __init__(self, id: str, estudiante_id: str, codigo_equipo: str, fecha_inicio: datetime, fecha_limite: datetime, estado: EstadoPrestamo = EstadoPrestamo.ACTIVO, multa: int = 0):
+    #Préstamo de un equipo a un estudiante
+
+    def __init__(self, id: int | None, estudiante_id: str, codigo_equipo: str, fecha_inicio: date, fecha_limite: date, 
+                 fecha_devolucion: date | None = None, estado: EstadoPrestamo = EstadoPrestamo.ACTIVO, multa: int = 0):
         self.id = id
         self.estudiante_id = estudiante_id
         self.codigo_equipo = codigo_equipo
         self.fecha_inicio = fecha_inicio
-        self.fecha_limite= fecha_limite
-        self.fecha_devolucion = None
+        self.fecha_limite = fecha_limite
+        self.fecha_devolucion = fecha_devolucion
         self.estado = estado
         self.multa = multa
 
-    def calcular_multa(self, fecha_entrega: datetime, tarifa_diaria : int) -> int:
-        """Calcula la multa basada en la fecha de entrega y la tarifa diaria."""
-        self.fecha_devolucion = fecha_entrega
+    def cerrar(self, fecha_devolucion: date, multa: int) -> None:
+        #Registra la devolución; la multa la calcula CalculadoraMulta - regla R5
+        self.fecha_devolucion = fecha_devolucion
+        self.multa = multa
         self.estado = EstadoPrestamo.DEVUELTO
-        if self.fecha_devolucion <= self.fecha_limite:
-            return 0
-        dias_retraso = (self.fecha_devolucion - self.fecha_limite).days
-        self.multa = dias_retraso * tarifa_diaria
-        return self.multa

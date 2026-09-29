@@ -1,17 +1,17 @@
 class Estudiantes:
-    def __init__(self, id : str, nombres : str, apellidos : str, correo : str, telefono: str, prest_activos: int, multa_pend: bool):
+    SIN_MULTA= 0
+
+    def __init__(self, id: str, nombres: str, apellidos: str, correo: str, telefono: str, multa_pendiente: int = SIN_MULTA):
         self.id = id
         self.nombres = nombres
         self.apellidos = apellidos
         self.correo = correo
         self.telefono = telefono
-        self.prest_activos = prest_activos
-        self.multa_pend = multa_pend
+        self.multa_pendiente = multa_pendiente
 
-    def tiene_multa_activa(self) -> bool:
-        """Verifica si el estudiante tiene una multa activa."""
-        return self.multa_pend
+    def tiene_multa_pendiente(self) -> bool:
+        #Con multa pendiente no puede pedir prestado - regla R4
+        return self.multa_pendiente > self.SIN_MULTA
 
-    def adicionar_multa(self) -> None:
-        """Marca al estudiante como con multa activa."""
-        self.multa_pend = True
+    def adicionar_multa(self, monto: int) -> None:
+        self.multa_pendiente += monto

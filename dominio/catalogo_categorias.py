@@ -1,5 +1,5 @@
 from dominio.categoria import Categoria
-from dominio.excepciones.categoria_no_registrada import CategoriaNoRegistrada
+from dominio.excepciones import CategoriaNoRegistrada
 
 
 class CatalogoCategorias:

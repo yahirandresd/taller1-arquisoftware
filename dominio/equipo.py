@@ -1,7 +1,7 @@
 from dominio.categoria import Categoria
 from dominio.estado_entrega import EstadoEntrega
 from dominio.estado_equipo import EstadoEquipo
-from dominio.excepciones.equipo_no_disponible import EquipoNoDisponible
+from dominio.excepciones import EquipoNoDisponible
 
 
 class Equipo:

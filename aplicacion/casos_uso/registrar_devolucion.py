@@ -9,8 +9,8 @@ from aplicacion.puertos.repo_prestamo import RepoPrestamo
 from dominio.calculadora_multa import CalculadoraMulta
 from dominio.equipo import Equipo
 from dominio.estado_entrega import EstadoEntrega
-from dominio.excepciones.equipo_no_encontrado import EquipoNoEncontrado
-from dominio.excepciones.prestamo_no_encontrado import PrestamoNoEncontrado
+from dominio.excepciones import EquipoNoEncontrado
+from dominio.excepciones import PrestamoNoEncontrado
 from dominio.prestamo import Prestamo
 
 class RegistrarDevolucion:

@@ -3,9 +3,9 @@ from dominio.estudiantes import Estudiantes
 
 class RepoEstudiante(ABC):
     @abstractmethod
-    def guardarEstudiante(self, estudiante: Estudiantes) -> None:
+    def guardar_estudiante(self, estudiante: Estudiantes) -> None:
         ...
-
+        
     @abstractmethod
-    def buscarEstudiantePorId(self, id: str) -> Estudiantes:
+    def buscar_estudiante(self, estudiante_id: str) -> Estudiantes | None:
         ...
