@@ -14,10 +14,8 @@ from dominio.excepciones.prestamo_no_encontrado import PrestamoNoEncontrado
 from dominio.prestamo import Prestamo
 
 class RegistrarDevolucion:
-    """Caso de uso: registrar la devolución de un equipo prestado."""
 
-    def __init__(self, repo_prestamo: RepoPrestamo, repo_equipo: RepoEquipo,
-                 repo_estudiante: RepoEstudiante, proveedor_fecha: ProveedorFecha,
+    def __init__(self, repo_prestamo: RepoPrestamo, repo_equipo: RepoEquipo, repo_estudiante: RepoEstudiante, proveedor_fecha: ProveedorFecha,
                  notificador: Notificador):
         self._repo_prestamo = repo_prestamo
         self._repo_equipo = repo_equipo
@@ -59,3 +57,4 @@ class RegistrarDevolucion:
         estudiante.adicionar_multa(prestamo.multa)
         self._repo_estudiante.guardar_estudiante(estudiante)
         self._notificador.notificar_multa(prestamo.estudiante_id, prestamo)
+        
